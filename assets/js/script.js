@@ -48,9 +48,11 @@ método sort, ordena de forma alfabética para string y para otros
 elementos ordena según valor unicode*/
 var amigos = ["Erick", "Cristian", "Max", "Claudia"];
 console.log("sort para string",amigos.sort()); //ej:["Claudia", "Cristian", "Erick", "Max"]
-var numeros = [1, 5, 20, 23];
+var numeros = [100, 25, 200, 23];
 console.log("sort para num:",numeros.sort()); //ej: [1, 20, 23, 5] ojo. revisar orden unicode!
-
+//para ordenar números, crear funcion numeros.sort(function(a,b){ return a-b;};
+var num2=numeros.sort(function(a,b){ return a-b;});
+console.log("ordena num:",num2);
 
 
 //método reverse, invierte el orden de los elementos del array
