@@ -1,28 +1,32 @@
 
 //muestra los métodos que tienen los arrays
 var arreglo = []
-console.log(arreglo);
+console.log("muestra métodos:",arreglo);
 
 
-//método push, agrega elementos al array
+//método push, agrega elementos al array(al final)
 var amigos = ["Erick", "Cristian", "Max", "Claudia"];
 amigos.push("Gary", "Arturo", "Alexis");
-console.log(amigos);
+console.log("push:",amigos);
 
 
 
 //método pop, elimina último elemento de un array.
 var amigos = ["Erick", "Cristian", "Max", "Claudia"];
 amigos.pop();
-console.log(amigos);
+console.log("pop:",amigos);
 
 
 
 //método shift, elimina el primer elemento del array
 var amigos = ["Erick", "Cristian", "Max", "Claudia"];
 amigos.shift();
-console.log(amigos);
+console.log("shift:",amigos);
 
+//método unshift, añade un elemento al principio de la lista
+var amigos = ["Erick", "Cristian", "Max", "Claudia"];
+amigos.unshift("Juan");
+console.log("unshift:",amigos);
 
 /*
 método split, divide una cadena de texto string en un arreglo,
@@ -30,28 +34,28 @@ es como si transformara la cadena de string en elementos de un arreglo,
 indicando el separador con un (',')*/
 var cliente = 'Juan Carlos, 29, jcarlos@gmail.com'; //toma el string 'juan carlos,...
 var arregloCliente = cliente.split(', ');  //y le indica que separe en arreglos
-console.log(arregloCliente);        //tomando como referencia de separador la coma
+console.log("split:",arregloCliente);        //tomando como referencia de separador la coma
 
 
 
 //método join, imprime datos de un array, con formato definido en join, 
 var amigos = ["Erick", "Cristian", "Max", "Claudia"];//sacándolos del array
-console.log(amigos.join("-")); //ej: Erick-Cristian-Max-Claudia
+console.log("join:",amigos.join("-")); //ej: Erick-Cristian-Max-Claudia
 
 
 /*
 método sort, ordena de forma alfabética para string y para otros
 elementos ordena según valor unicode*/
 var amigos = ["Erick", "Cristian", "Max", "Claudia"];
-console.log(amigos.sort()); //ej:["Claudia", "Cristian", "Erick", "Max"]
+console.log("sort para string",amigos.sort()); //ej:["Claudia", "Cristian", "Erick", "Max"]
 var numeros = [1, 5, 20, 23];
-console.log(numeros.sort()); //ej: [1, 20, 23, 5] ojo. revisar orden unicode!
+console.log("sort para num:",numeros.sort()); //ej: [1, 20, 23, 5] ojo. revisar orden unicode!
 
 
 
 //método reverse, invierte el orden de los elementos del array
 var muchachos = ["Juan", "Lucas", "Pedro", "Marcos"];
-console.log(muchachos.reverse()); //ej:[ "Marcos", "Pedro", "Lucas", "Juan" ]
+console.log("reverse:",muchachos.reverse()); //ej:[ "Marcos", "Pedro", "Lucas", "Juan" ]
 
 /*
 método forEach, es como recorrer un arrray con un for, declarar variables
@@ -64,7 +68,7 @@ var clientes = [
     ];
   
     clientes.forEach(function(cliente) {
-        console.log(cliente.nombre);
+        console.log("forEach:",cliente.nombre);
         });
         
     /*ej:Juan 
@@ -99,7 +103,7 @@ con map.*/
 
         }
     }
-            console.log(clientes);  
+            console.log("ej.sinmap:",clientes);  
 
     //Ejemplo CON método map
 
@@ -116,7 +120,7 @@ con map.*/
         }
         return cliente;
         });
-        console.log(clientes);
+        console.log("map:",clientes);
 
 
 /*
@@ -128,7 +132,7 @@ var deudas = [10000, 5000, 50000, 35000];
 var sumatoriaDeudas = deudas.reduce(function(contador, deuda){
 return contador + deuda;
 });
-console.log(sumatoriaDeudas); //El resultado sería:100000
+console.log("reduce",sumatoriaDeudas); //El resultado sería:100000
 /*El contador representa el resultado de lo ejecutado dentro de
 la función, mientras que deuda representa el elemento actual en
 el cual se está iterando.*/
@@ -142,7 +146,7 @@ var clientes = [
     var nombres = clientes.reduce(function(acumulador, cliente){
     return acumulador + ' | ' + cliente.nombre;
     }, '');
-    console.log(nombres);
+    console.log("reduceobj:",nombres);
 
 // el resultado sería: | Juan | Carlos | Karla
 
@@ -159,7 +163,7 @@ var clientes = [
     var adultos = clientes.filter(function(cliente){
     return cliente.edad >= 18
     });
-    console.log(adultos); /*el resultado es
+    console.log("filter:",adultos); /*el resultado es
      {nombre: "Juan", edad: 28}
      {nombre: "Karla", edad: 27}*/
     
@@ -177,7 +181,7 @@ var productos = [
     var kapo = productos.find(function(producto){
     return producto.nombre == 'kapo'
     });
-    console.log(kapo); //El resultado es:{nombre: "kapo", precio: 190}
+    console.log("find:",kapo); //El resultado es:{nombre: "kapo", precio: 190}
 
 
 //método findIndex, obtiene el índice del objeto que cumpla condición.
@@ -191,7 +195,7 @@ var productos = [
     var ramitasIndice = productos.findIndex(function(producto){
     return producto.nombre == 'ramitas'
     });
-    console.log(ramitasIndice); //El resultado es 2
+    console.log("findIndex:",ramitasIndice); //El resultado es 2
     
 
 
@@ -210,7 +214,7 @@ var autos = [
     var algunDiesel = autos.some(function(auto){
     return auto.combustible == 'Diesel'
     });
-    console.log(algunDiesel); //SE UTILIZA PARA VALIDACIONES BOOLEANAS
+    console.log("some:",algunDiesel); //SE UTILIZA PARA VALIDACIONES BOOLEANAS
 
 
 /*
@@ -232,7 +236,7 @@ var autosCompactos = [
     {marca: 'Mitsubishi', modelo: 'Lancer Evo', combustible: 'Gasolina'},
     ];
     var autos = autosCompactos.concat(autosDeportivos);
-    console.log(autos);
+    console.log("concat:",autos);
 /*El resultado sería el siguiente
 0: {marca: "Toyota", modelo: "Corolla", combustible: "Gasolina"}
 1: {marca: "Mazda", modelo: "3", combustible: "Gasolina"}
